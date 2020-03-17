@@ -17,5 +17,10 @@ namespace IDV300Term1
         {
             InitializeComponent();
         }
+
+        async void SwipeLeft(System.Object sender, System.EventArgs e)
+        {
+            await Navigation.PushModalAsync(new GamePage());
+        }
     }
 }

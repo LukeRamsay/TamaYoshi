@@ -1,0 +1,17 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnAppYadummy", "AnAppYadummy\AnAppYadummy.csproj", "{96D8F3E2-6C32-408C-BC40-61ADF141B067}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{96D8F3E2-6C32-408C-BC40-61ADF141B067}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96D8F3E2-6C32-408C-BC40-61ADF141B067}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96D8F3E2-6C32-408C-BC40-61ADF141B067}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96D8F3E2-6C32-408C-BC40-61ADF141B067}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
