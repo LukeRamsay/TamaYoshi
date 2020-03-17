@@ -76,16 +76,10 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon1024.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon180.png">
-      <Visible>false</Visible>
-    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon167.png">
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon152.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon120.png">
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon87.png">
@@ -112,6 +106,30 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon20.png">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\bed_normal.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\bed_good.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\bed_bad.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\food_normal.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\food_good.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\food_bad.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\bed_normal.imageset\bed_good%403x.png" />
+    <ImageAsset Include="Assets.xcassets\bed_good.imageset\bed %281%29.png" />
+    <ImageAsset Include="Assets.xcassets\bed_bad.imageset\bed.png" />
+    <ImageAsset Include="Assets.xcassets\food_normal.imageset\fork copy.png" />
+    <ImageAsset Include="Assets.xcassets\food_good.imageset\eat.png" />
+    <ImageAsset Include="Assets.xcassets\food_bad.imageset\fork.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon%401x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon%401x-1.png" />
+    <ImageAsset Include="Assets.xcassets\shower_normal.imageset\bath copy.png" />
+    <ImageAsset Include="Assets.xcassets\shower_normal.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\shower_good.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\shower_good.imageset\shower.png" />
+    <ImageAsset Include="Assets.xcassets\shower_bad.imageset\bath.png" />
+    <ImageAsset Include="Assets.xcassets\shower_bad.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\yoshi_egg.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\yoshi_adult.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\yoshi_egg.imageset\985-9859496_yoshi-egg-8-bit-yoshi-egg.png" />
+    <ImageAsset Include="Assets.xcassets\yoshi_adult.imageset\pixels-drawing-yoshi-17.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -131,5 +149,18 @@
       <Project>{BF431EA1-A26F-4710-94E0-65D6E9513B37}</Project>
       <Name>IDV300Term1</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets.xcassets\bed_normal.imageset\" />
+    <Folder Include="Assets.xcassets\bed_good.imageset\" />
+    <Folder Include="Assets.xcassets\bed_bad.imageset\" />
+    <Folder Include="Assets.xcassets\food_normal.imageset\" />
+    <Folder Include="Assets.xcassets\food_good.imageset\" />
+    <Folder Include="Assets.xcassets\food_bad.imageset\" />
+    <Folder Include="Assets.xcassets\shower_normal.imageset\" />
+    <Folder Include="Assets.xcassets\shower_good.imageset\" />
+    <Folder Include="Assets.xcassets\shower_bad.imageset\" />
+    <Folder Include="Assets.xcassets\yoshi_egg.imageset\" />
+    <Folder Include="Assets.xcassets\yoshi_adult.imageset\" />
   </ItemGroup>
 </Project>

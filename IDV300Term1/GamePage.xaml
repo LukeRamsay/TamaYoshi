@@ -4,6 +4,6 @@
         <Grid>
         <Grid.GestureRecognizers> <SwipeGestureRecognizer  Direction="Right" Swiped="SwipeRight"></SwipeGestureRecognizer></Grid.GestureRecognizers>
         
-         </Grid>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
