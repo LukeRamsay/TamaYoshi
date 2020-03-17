@@ -130,6 +130,10 @@
     <ImageAsset Include="Assets.xcassets\yoshi_adult.imageset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\yoshi_egg.imageset\985-9859496_yoshi-egg-8-bit-yoshi-egg.png" />
     <ImageAsset Include="Assets.xcassets\yoshi_adult.imageset\pixels-drawing-yoshi-17.png" />
+    <ImageAsset Include="Assets.xcassets\name_reset.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\name_save.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\name_save.imageset\icons8-save-50.png" />
+    <ImageAsset Include="Assets.xcassets\name_reset.imageset\icons8-reset-50.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -162,5 +166,7 @@
     <Folder Include="Assets.xcassets\shower_bad.imageset\" />
     <Folder Include="Assets.xcassets\yoshi_egg.imageset\" />
     <Folder Include="Assets.xcassets\yoshi_adult.imageset\" />
+    <Folder Include="Assets.xcassets\name_reset.imageset\" />
+    <Folder Include="Assets.xcassets\name_save.imageset\" />
   </ItemGroup>
 </Project>
