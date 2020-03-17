@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:d="http://xamarin.com/schemas/2014/forms/design" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="IDV300Term1.MainPage">
+
+<ContentPage.Content>
+    <Grid>
+        <StackLayout VerticalOptions="StartAndExpand" HeightRequest="500" BackgroundColor="Yellow" TranslationY="-20">
+
+        </StackLayout>
+        
+        <StackLayout VerticalOptions="EndAndExpand" HeightRequest="450" BackgroundColor="#F7F7F7">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                   <Button Text="FEED" x:Name="bedButton" HeightRequest="40" BackgroundColor="#F4ED48" Margin="10, 360, 20, 50" CornerRadius="20" WidthRequest="100"/>
+                    <Button Text="BATH" x:Name="bathButton" WidthRequest="{Binding Path=Width, Source={x:Reference bedButton}}" Margin="10, 360, 20, 50" HeightRequest="40" BackgroundColor="#3C85F3" CornerRadius="20" />
+                <Button Text="SLEEP" x:Name="foodButton" WidthRequest="{Binding Path=Width, Source={x:Reference bedButton}}" HeightRequest="40" BackgroundColor="#F06060" Margin="10, 360, 20, 50"  CornerRadius="20" />
+            </StackLayout>
+        </StackLayout>
+        <Frame HasShadow="True" CornerRadius="40" Padding="0" VerticalOptions="CenterAndExpand" HeightRequest="80" Margin="30, 0, 30, 0" >
+       
+        </Frame>
+    </Grid>
+</ContentPage.Content>
+
+</ContentPage>
+
