@@ -21,7 +21,6 @@ namespace IDV300Term1.Objects
                     return "bad";
                 default:
                     return "dead";
-
             }
         }
 

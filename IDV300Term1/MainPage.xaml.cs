@@ -55,6 +55,9 @@ namespace IDV300Term1
 
             var duration = TimeSpan.FromSeconds(1);
             Vibration.Vibrate(duration);
+
+            var player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
+            player.Load("button_click.mp3");
         }
 
         void bathYoshiTapped(System.Object sender, System.EventArgs e)
@@ -64,6 +67,12 @@ namespace IDV300Term1
             yoshi.giveBath();
 
             updateUI();
+
+            var duration = TimeSpan.FromSeconds(1);
+            Vibration.Vibrate(duration);
+
+            var player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
+            player.Load("button_click.mp3");
         }
 
         void bedYoshiTapped(System.Object sender, System.EventArgs e)
@@ -73,6 +82,12 @@ namespace IDV300Term1
             yoshi.giveBath();
 
             updateBedUI();
+
+            var duration = TimeSpan.FromSeconds(1);
+            Vibration.Vibrate(duration);
+
+            var player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
+            player.Load("button_click.mp3");
         }
 
         void updateUI()
