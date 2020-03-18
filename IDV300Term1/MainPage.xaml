@@ -9,11 +9,7 @@
         </StackLayout>
         
         <StackLayout VerticalOptions="EndAndExpand" HeightRequest="450" BackgroundColor="#F7F7F7">
-            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                   <Button Clicked="feedYoshiTapped" x:Name="foodButton" Text="FEED"  HeightRequest="40" BackgroundColor="#F4f4f4" Margin="10, 360, 20, 50" CornerRadius="20" TextColor="#3F3F3F" WidthRequest="100"/>
-                    <Button Clicked="bathYoshiTapped" x:Name="bathButton" Text="BATH" WidthRequest="{Binding Path=Width, Source={x:Reference foodButton}}" Margin="10, 360, 20, 50" HeightRequest="40" BackgroundColor="#f4f4f4" TextColor="#3F3F3F" CornerRadius="20" />
-                <Button Clicked="bedYoshiTapped" x:Name="bedButton" Text="SLEEP" WidthRequest="{Binding Path=Width, Source={x:Reference foodButton}}" HeightRequest="40" BackgroundColor="#F4f4f4" TextColor="#3F3F3F" Margin="10, 360, 20, 50"  CornerRadius="20" />
-            </StackLayout>
+            
         </StackLayout>
         <Frame HasShadow="True" CornerRadius="40" Padding="0" VerticalOptions="CenterAndExpand" HeightRequest="80" Margin="30, 0, 30, 0">
 
@@ -31,6 +27,11 @@
         <Label  VerticalOptions="Center" HorizontalOptions="Start" Margin="25, 450, 25, 0" HeightRequest="40" FontAttributes="Bold" FontSize="Title">Status: (overall) </Label>
         <Label  VerticalOptions="Center" HorizontalOptions="Start" Margin="25, 600, 25, 0" HeightRequest="100" FontSize="Body">Your yoshi currenly is in need of (needs), Your Yoshi is currently (number) days old making him an (stage), Your Yoshi was born on (date).</Label>
         <Entry HorizontalOptions="Start" VerticalOptions="CenterAndExpand" HeightRequest="40" WidthRequest="200" FontSize="30" Placeholder="Name" BackgroundColor="Transparent" Margin="105, 10, 0, 10" Text="" IsTextPredictionEnabled="False" MaxLength="10"></Entry>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="End">
+            <Button Clicked="feedYoshiTapped" x:Name="foodButton" Text="FEED"  HeightRequest="40" BackgroundColor="#F4f4f4" Margin="10, 360, 20, 50" CornerRadius="20" TextColor="#3F3F3F" WidthRequest="100"/>
+            <Button Clicked="bathYoshiTapped" x:Name="bathButton" Text="BATH" WidthRequest="{Binding Path=Width, Source={x:Reference foodButton}}" Margin="10, 360, 20, 50" HeightRequest="40" BackgroundColor="#f4f4f4" TextColor="#3F3F3F" CornerRadius="20" />
+            <Button Clicked="bedYoshiTapped" x:Name="bedButton" Text="SLEEP" WidthRequest="{Binding Path=Width, Source={x:Reference foodButton}}" HeightRequest="40" BackgroundColor="#F4f4f4" TextColor="#3F3F3F" Margin="10, 360, 20, 50"  CornerRadius="20" />
+        </StackLayout>
     </Grid>
 </ContentPage.Content>
 

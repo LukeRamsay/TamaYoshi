@@ -18,9 +18,15 @@ namespace IDV300Term1
 
         private TimeKeeper timeKeeper = new TimeKeeper();
 
+        private TimeKeeper foodTimeKeeper = new TimeKeeper();
+
+        private TimeKeeper bedTimeKeeper = new TimeKeeper();
+
         private static Timer timer;
 
         private static Timer foodTimer;
+
+        private static Timer bedTimer;
 
         public MainPage()
         {
@@ -30,9 +36,13 @@ namespace IDV300Term1
 
             updateFoodUI();
 
+            updateBedUI();
+
             StartTimer();
 
             StartFoodTimer();
+
+            StartBedTimer();
         }
 
         void feedYoshiTapped(System.Object sender, System.EventArgs e)
@@ -45,7 +55,6 @@ namespace IDV300Term1
 
             var duration = TimeSpan.FromSeconds(1);
             Vibration.Vibrate(duration);
-
         }
 
         void bathYoshiTapped(System.Object sender, System.EventArgs e)
@@ -59,27 +68,23 @@ namespace IDV300Term1
 
         void bedYoshiTapped(System.Object sender, System.EventArgs e)
         {
-            ResetTimer();
+            ResetBedTimer();
 
             yoshi.giveBath();
 
-            updateUI();
+            updateBedUI();
         }
 
         void updateUI()
         {
-            Device.BeginInvokeOnMainThread(async () =>
+            Device.BeginInvokeOnMainThread( () =>
             {
                 bathImage.Source = "shower_" + yoshi.CurrentBathState;
-                bedImage.Source = "bed_" + yoshi.CurrentBedState;
+                
 
                 if (yoshi.CurrentBathState == BathState.bad)
                 {
                     YoshiDirty();
-                }
-                if (yoshi.CurrentBedState == BedState.bad)
-                {
-                    YoshiExuasted();
                 }
             });
         }
@@ -87,13 +92,26 @@ namespace IDV300Term1
 
         void updateFoodUI()
         {
-            Device.BeginInvokeOnMainThread(async () =>
+            Device.BeginInvokeOnMainThread( () =>
             {
                 foodImage.Source = "food_" + yoshi.CurrentFoodState;
 
                 if (yoshi.CurrentFoodState == FoodState.bad)
                 {
                     YoshiStarved();
+                }
+            });
+        }
+
+        void updateBedUI()
+        {
+            Device.BeginInvokeOnMainThread( () =>
+            {
+                bedImage.Source = "bed_" + yoshi.CurrentBedState;
+
+                if (yoshi.CurrentBedState == BedState.bad)
+                {
+                    YoshiExuasted();
                 }
             });
         }
@@ -118,8 +136,8 @@ namespace IDV300Term1
         {
             await DisplayAlert("Exuasted", "Yoshi has died form being too tired", "Try Again");
             yoshi.CurrentBedState = BedState.good;
-            ResetTimer();
-            updateUI();
+            ResetBedTimer();
+            updateBedUI();
         }
 
         private void StartTimer()
@@ -146,10 +164,25 @@ namespace IDV300Term1
             foodTimer.Start();
         }
 
+        private void StartBedTimer()
+        {
+            bedTimer = new Timer();
+            bedTimer.Interval = 1000;
+            bedTimer.Enabled = true;
+            bedTimer.Elapsed += UpdateBedData;
+            bedTimer.Start();
+        }
+
         private void ResetFoodTimer()
         {
-            timeKeeper.StartTime = DateTime.Now;
+            foodTimeKeeper.StartTime = DateTime.Now;
             StartFoodTimer();
+        }
+
+        private void ResetBedTimer()
+        {
+            bedTimeKeeper.StartTime = DateTime.Now;
+            StartBedTimer();
         }
 
         private void UpdateTimedData(object sender, ElapsedEventArgs e)
@@ -189,7 +222,7 @@ namespace IDV300Term1
 
         private void UpdateFoodData(object sender, ElapsedEventArgs e)
         {
-            TimeSpan foodTimeElapsed = e.SignalTime - timeKeeper.StartTime;
+            TimeSpan foodTimeElapsed = e.SignalTime - foodTimeKeeper.StartTime;
 
             FoodState newFoodState = yoshi.CurrentFoodState;
 
@@ -214,6 +247,37 @@ namespace IDV300Term1
 
 
                 updateFoodUI();
+            }
+
+        }
+
+        private void UpdateBedData(object sender, ElapsedEventArgs e)
+        {
+            TimeSpan bedTimeElapsed = e.SignalTime - bedTimeKeeper.StartTime;
+
+            BedState newBedState = yoshi.CurrentBedState;
+
+            if (bedTimeElapsed.TotalSeconds < 10)
+            {
+                newBedState = BedState.good;
+
+            }
+            else if (bedTimeElapsed.TotalSeconds < 20)
+            {
+                newBedState = BedState.normal;
+
+            }
+            else if (bedTimeElapsed.TotalSeconds >= 20)
+            {
+                newBedState = BedState.bad;
+
+            }
+            if (newBedState != yoshi.CurrentBedState)
+            {
+                yoshi.CurrentBedState = newBedState;
+
+
+                updateBedUI();
             }
 
         }
