@@ -18,9 +18,9 @@ namespace IDV300Term1
 
         private TimeKeeper timeKeeper = new TimeKeeper();
 
-        private TimeKeeper foodTimeKeeper = new TimeKeeper();
+        private FoodTimeKeeper foodTimeKeeper = new FoodTimeKeeper();
 
-        private TimeKeeper bedTimeKeeper = new TimeKeeper();
+        private BedTimeKeeper bedTimeKeeper = new BedTimeKeeper();
 
         private static Timer timer;
 
@@ -193,13 +193,13 @@ namespace IDV300Term1
 
         private void ResetFoodTimer()
         {
-            foodTimeKeeper.StartTime = DateTime.Now;
+            foodTimeKeeper.FoodStartTime = DateTime.Now;
             StartFoodTimer();
         }
 
         private void ResetBedTimer()
         {
-            bedTimeKeeper.StartTime = DateTime.Now;
+            bedTimeKeeper.BedStartTime = DateTime.Now;
             StartBedTimer();
         }
 
@@ -240,7 +240,7 @@ namespace IDV300Term1
 
         private void UpdateFoodData(object sender, ElapsedEventArgs e)
         {
-            TimeSpan foodTimeElapsed = e.SignalTime - foodTimeKeeper.StartTime;
+            TimeSpan foodTimeElapsed = e.SignalTime - foodTimeKeeper.FoodStartTime;
 
             FoodState newFoodState = yoshi.CurrentFoodState;
 
@@ -271,7 +271,7 @@ namespace IDV300Term1
 
         private void UpdateBedData(object sender, ElapsedEventArgs e)
         {
-            TimeSpan bedTimeElapsed = e.SignalTime - bedTimeKeeper.StartTime;
+            TimeSpan bedTimeElapsed = e.SignalTime - bedTimeKeeper.BedStartTime;
 
             BedState newBedState = yoshi.CurrentBedState;
 
