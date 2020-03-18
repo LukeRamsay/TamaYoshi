@@ -58,6 +58,7 @@ namespace IDV300Term1
 
             var player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
             player.Load("button_click.mp3");
+            player.Play();
         }
 
         void bathYoshiTapped(System.Object sender, System.EventArgs e)
@@ -73,6 +74,7 @@ namespace IDV300Term1
 
             var player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
             player.Load("button_click.mp3");
+            player.Play();
         }
 
         void bedYoshiTapped(System.Object sender, System.EventArgs e)
@@ -88,6 +90,7 @@ namespace IDV300Term1
 
             var player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
             player.Load("button_click.mp3");
+            player.Play();
         }
 
         void updateUI()
