@@ -148,6 +148,7 @@ namespace IDV300Term1
             yoshi.CurrentBathState = BathState.good;
             ResetTimer();
             updateUI();
+
         }
 
         private async void YoshiExuasted()
@@ -209,30 +210,28 @@ namespace IDV300Term1
 
 
             BathState newBathState = yoshi.CurrentBathState;
-            BedState newBedState = yoshi.CurrentBedState;
 
             if (timeElapsed.TotalSeconds < 10)
             {
                 newBathState = BathState.good;
-                newBedState = BedState.good;
+              
             }
             else if (timeElapsed.TotalSeconds < 20)
             {
 
                 newBathState = BathState.normal;
-                newBedState = BedState.normal;
+              
             }
             else if (timeElapsed.TotalSeconds >= 20)
             {
 
                 newBathState = BathState.bad;
-                newBedState = BedState.bad;
+            
             }
-            if (newBedState != yoshi.CurrentBedState || newBathState != yoshi.CurrentBathState)
+            if (newBathState != yoshi.CurrentBathState)
             {
 
                 yoshi.CurrentBathState = newBathState;
-                yoshi.CurrentBedState = newBedState;
                 updateUI();
 
             }
@@ -293,7 +292,6 @@ namespace IDV300Term1
             if (newBedState != yoshi.CurrentBedState)
             {
                 yoshi.CurrentBedState = newBedState;
-
 
                 updateBedUI();
             }
