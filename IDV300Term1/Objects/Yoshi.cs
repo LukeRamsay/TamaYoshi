@@ -97,20 +97,5 @@ namespace IDV300Term1.Objects
         {
 
         }
-
-        public void giveFood()
-        {
-
-        }
-
-        public void giveBath()
-        {
-
-        }
-
-        public void giveBed()
-        {
-
-        }
     }
 }

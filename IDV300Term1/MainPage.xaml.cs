@@ -58,8 +58,6 @@ namespace IDV300Term1
         {
             ResetFoodTimer();
 
-            yoshi.giveFood();
-
             updateFoodUI();
 
             var duration = TimeSpan.FromSeconds(1);
@@ -74,8 +72,6 @@ namespace IDV300Term1
         {
             ResetTimer();
 
-            yoshi.giveBath();
-
             updateUI();
 
             var duration = TimeSpan.FromSeconds(1);
@@ -84,15 +80,12 @@ namespace IDV300Term1
             var player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
             player.Load("button_click.mp3");
             player.Play();
-
            
         }
 
         void bedYoshiTapped(System.Object sender, System.EventArgs e)
         {
             ResetBedTimer();
-
-            yoshi.giveBath();
 
             updateBedUI();
 
@@ -186,7 +179,6 @@ namespace IDV300Term1
             yoshi.CurrentBathState = BathState.good;
             ResetTimer();
             updateUI();
-
         }
 
         private async void YoshiExuasted()
