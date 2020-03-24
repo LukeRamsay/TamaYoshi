@@ -18,10 +18,18 @@ namespace IDV300Term1
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class GamePage : PopupPage
     {
+        private Yoshi yoshi = new Yoshi();
+
         public GamePage()
         {
             InitializeComponent();
 
+        }
+
+        async void SaveYoshiName(object sender, EventArgs e)
+        {
+            yoshi.YoshiName = NameInput.Text;
+            await PopupNavigation.Instance.PopAsync(true);
         }
     }
 }

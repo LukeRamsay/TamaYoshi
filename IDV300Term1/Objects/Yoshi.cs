@@ -8,6 +8,7 @@ namespace IDV300Term1.Objects
         const string bathStateKey = "bathState";
         const string bedStateKey = "bedState";
         const string healthStateKey = "healthState";
+        const string nameKey = "yoshiName";
 
         public FoodState CurrentFoodState
         {
@@ -90,6 +91,25 @@ namespace IDV300Term1.Objects
             {
                 App.Current.Properties[healthStateKey] = HealthStates.GetHealthString(value);
 
+            }
+        }
+
+        public string YoshiName
+        {
+            get
+            {
+                if (App.Current.Properties.ContainsKey(nameKey))
+                {
+                    return (string)App.Current.Properties[nameKey];
+                }
+                else
+                {
+                    return "No Name";
+                }
+            }
+            set
+            {
+                App.Current.Properties[nameKey] = value;
             }
         }
 

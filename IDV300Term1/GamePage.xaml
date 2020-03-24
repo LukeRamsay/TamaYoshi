@@ -9,19 +9,15 @@
                  HorizontalOptions="Center"
                  VerticalOptions="Center">
         <StackLayout>
-            <Label Text="Login" />
             <Entry FontSize="30"
-                   Text="username@email.com" />
-        </StackLayout>
-        <StackLayout>
-            <Label Text="Password" />
-            <Entry FontSize="30"
-                   IsPassword="True"
-                   Text="password123" />
+                    MaxLength="10"
+                   IsTextPredictionEnabled="False"
+                   x:Name="NameInput"/>
         </StackLayout>
         <Button BackgroundColor="DodgerBlue"
                 FontSize="30"
                 Text="Login"
-                TextColor="White" />
+                TextColor="White"
+                Clicked="SaveYoshiName"/>
     </StackLayout>
 </rg:PopupPage>

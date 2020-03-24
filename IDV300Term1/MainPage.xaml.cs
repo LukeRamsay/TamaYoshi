@@ -114,6 +114,11 @@ namespace IDV300Term1
 
         void updateUI()
         {
+            if (NameButton.Text != yoshi.YoshiName)
+            {
+                NameButton.Text = yoshi.YoshiName;
+            }
+
             Device.BeginInvokeOnMainThread( () =>
             {
                 bathImage.Source = "shower_" + yoshi.CurrentBathState;
@@ -264,6 +269,11 @@ namespace IDV300Term1
 
 
             BathState newBathState = yoshi.CurrentBathState;
+
+            if (yoshi.YoshiName != NameButton.Text)
+            {
+                NameButton.Text = yoshi.YoshiName.ToString();
+            }
 
             if (timeElapsed.TotalSeconds < 10)
             {
