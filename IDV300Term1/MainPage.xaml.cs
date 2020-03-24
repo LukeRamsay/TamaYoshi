@@ -8,6 +8,7 @@ using Xamarin.Forms;
 using IDV300Term1.Objects;
 using System.Timers;
 using Xamarin.Essentials;
+using Rg.Plugins.Popup.Services;
 
 namespace IDV300Term1
 {
@@ -383,7 +384,7 @@ namespace IDV300Term1
 
         async void SwipeLeft(System.Object sender, System.EventArgs e)
         {
-            await Navigation.PushModalAsync(new GamePage());
+            await PopupNavigation.Instance.PushAsync(new GamePage());
         }
 
     }
