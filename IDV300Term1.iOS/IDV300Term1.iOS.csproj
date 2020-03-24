@@ -134,6 +134,12 @@
     <ImageAsset Include="Assets.xcassets\name_save.imageset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\name_save.imageset\icons8-save-50.png" />
     <ImageAsset Include="Assets.xcassets\name_reset.imageset\icons8-reset-50.png" />
+    <ImageAsset Include="Assets.xcassets\health_good.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\health_bad.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\health_normal.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\health_normal.imageset\care %283%29.png" />
+    <ImageAsset Include="Assets.xcassets\health_bad.imageset\care %282%29.png" />
+    <ImageAsset Include="Assets.xcassets\health_good.imageset\care %281%29.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -171,6 +177,9 @@
     <Folder Include="Assets.xcassets\yoshi_adult.imageset\" />
     <Folder Include="Assets.xcassets\name_reset.imageset\" />
     <Folder Include="Assets.xcassets\name_save.imageset\" />
+    <Folder Include="Assets.xcassets\health_good.imageset\" />
+    <Folder Include="Assets.xcassets\health_bad.imageset\" />
+    <Folder Include="Assets.xcassets\health_normal.imageset\" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\button_click.mp3" />

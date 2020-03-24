@@ -20,17 +20,19 @@
             </Grid>
         </Frame>
         <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-        <Frame VerticalOptions="Center" HeightRequest="50" WidthRequest="50" CornerRadius="45" Margin="0, 250, 0, 0" HasShadow="True"> <Image x:Name="foodImage" Source="food_good" Margin="10" ></Image> </Frame>
-        <Frame VerticalOptions="Center" HeightRequest="50" WidthRequest="50" CornerRadius="45" Margin="20, 250, 20, 0" HasShadow="True"> <Image x:Name="bathImage" Source="shower_good" Margin="10"></Image> </Frame>
-        <Frame VerticalOptions="Center" HeightRequest="50" WidthRequest="50" CornerRadius="45" Margin="0, 250, 0, 0" HasShadow="True"> <Image x:Name="bedImage" Source="bed_good" Margin="10"></Image> </Frame>
+        <Frame VerticalOptions="Center" HeightRequest="40" WidthRequest="40" CornerRadius="40" Margin="0, 250, 0, 0" HasShadow="True"> <Image x:Name="foodImage" Source="food_good" Margin="10" ></Image> </Frame>
+        <Frame VerticalOptions="Center" HeightRequest="40" WidthRequest="40" CornerRadius="40" Margin="10, 250, 10, 0" HasShadow="True"> <Image x:Name="bathImage" Source="shower_good" Margin="10"></Image> </Frame>
+        <Frame VerticalOptions="Center" HeightRequest="40" WidthRequest="40" CornerRadius="40" Margin="0, 250, 10, 0" HasShadow="True"> <Image x:Name="bedImage" Source="bed_good" Margin="10"></Image> </Frame>
+        <Frame VerticalOptions="Center" HeightRequest="40" WidthRequest="40" CornerRadius="40" Margin="0, 250, 0, 0" HasShadow="True"> <Image x:Name="healthImage" Source="health_good" Margin="10"></Image> </Frame>
         </StackLayout>
         <Label  VerticalOptions="Center" HorizontalOptions="Start" Margin="25, 450, 25, 0" HeightRequest="40" FontAttributes="Bold" FontSize="Title">Status: (overall) </Label>
         <Label  VerticalOptions="Center" HorizontalOptions="Start" Margin="25, 600, 25, 0" HeightRequest="100" FontSize="Body">Your yoshi currenly is in need of (needs), Your Yoshi is currently (number) days old making him an (stage), Your Yoshi was born on (date).</Label>
         <Entry HorizontalOptions="Start" VerticalOptions="CenterAndExpand" HeightRequest="40" WidthRequest="200" FontSize="30" Placeholder="Name" BackgroundColor="Transparent" Margin="105, 10, 0, 10" Text="" IsTextPredictionEnabled="False" MaxLength="10"></Entry>
         <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="End">
-            <Button Clicked="feedYoshiTapped" x:Name="foodButton" Text="FEED"  HeightRequest="40" BackgroundColor="#F4f4f4" Margin="10, 360, 20, 50" CornerRadius="20" TextColor="#3F3F3F" WidthRequest="100"/>
+            <Button Clicked="feedYoshiTapped" x:Name="foodButton" Text="FEED"  HeightRequest="40" BackgroundColor="#F4f4f4" Margin="10, 360, 20, 50" CornerRadius="20" TextColor="#3F3F3F" WidthRequest="70"/>
             <Button Clicked="bathYoshiTapped" x:Name="bathButton" Text="BATH" WidthRequest="{Binding Path=Width, Source={x:Reference foodButton}}" Margin="10, 360, 20, 50" HeightRequest="40" BackgroundColor="#f4f4f4" TextColor="#3F3F3F" CornerRadius="20" />
-            <Button Clicked="bedYoshiTapped" x:Name="bedButton" Text="SLEEP" WidthRequest="{Binding Path=Width, Source={x:Reference foodButton}}" HeightRequest="40" BackgroundColor="#F4f4f4" TextColor="#3F3F3F" Margin="10, 360, 20, 50"  CornerRadius="20" />
+            <Button Clicked="bedYoshiTapped"  x:Name="bedButton" Text="SLEEP" WidthRequest="{Binding Path=Width, Source={x:Reference foodButton}}" HeightRequest="40" BackgroundColor="#F4f4f4" TextColor="#3F3F3F" Margin="10, 360, 20, 50"  CornerRadius="20" />
+            <Button Clicked="healthYoshiTapped" x:Name="healthButton"  Text="MEDICINE" WidthRequest="{Binding Path=Width, Source={x:Reference foodButton}}" HeightRequest="40" BackgroundColor="#F4f4f4" TextColor="#3F3F3F" Margin="10, 360, 20, 50"  CornerRadius="20" />
         </StackLayout>
     </Grid>
 </ContentPage.Content>

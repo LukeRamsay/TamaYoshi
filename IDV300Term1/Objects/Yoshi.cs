@@ -7,6 +7,7 @@ namespace IDV300Term1.Objects
         const string foodStateKey = "foodState";
         const string bathStateKey = "bathState";
         const string bedStateKey = "bedState";
+        const string healthStateKey = "healthState";
 
         public FoodState CurrentFoodState
         {
@@ -67,6 +68,27 @@ namespace IDV300Term1.Objects
             set
             {
                 App.Current.Properties[bedStateKey] = BedStates.GetBedString(value);
+
+            }
+        }
+
+        public HealthState CurrentHealthState
+        {
+            get
+            {
+                if (App.Current.Properties.ContainsKey(healthStateKey))
+                {
+                    return HealthStates.GetHealthState((string)App.Current.Properties[healthStateKey]);
+                }
+                else
+                {
+                    return HealthState.good;
+                }
+
+            }
+            set
+            {
+                App.Current.Properties[healthStateKey] = HealthStates.GetHealthString(value);
 
             }
         }

@@ -22,11 +22,15 @@ namespace IDV300Term1
 
         private BedTimeKeeper bedTimeKeeper = new BedTimeKeeper();
 
+        private HealthTimeKeeper healthTimeKeeper = new HealthTimeKeeper();
+
         private static Timer timer;
 
         private static Timer foodTimer;
 
         private static Timer bedTimer;
+
+        private static Timer healthTimer;
 
         public MainPage()
         {
@@ -38,11 +42,16 @@ namespace IDV300Term1
 
             updateBedUI();
 
+            updateHealthUI();
+
             StartTimer();
 
             StartFoodTimer();
 
             StartBedTimer();
+
+            StartHealthTimer();
+
         }
 
         void feedYoshiTapped(System.Object sender, System.EventArgs e)
@@ -75,6 +84,8 @@ namespace IDV300Term1
             var player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
             player.Load("button_click.mp3");
             player.Play();
+
+           
         }
 
         void bedYoshiTapped(System.Object sender, System.EventArgs e)
@@ -84,6 +95,20 @@ namespace IDV300Term1
             yoshi.giveBath();
 
             updateBedUI();
+
+            var duration = TimeSpan.FromSeconds(1);
+            Vibration.Vibrate(duration);
+
+            var player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
+            player.Load("button_click.mp3");
+            player.Play();
+        }
+
+        void healthYoshiTapped(System.Object sender, System.EventArgs e)
+        {
+            ResetHealthTimer();
+
+            updateHealthUI();
 
             var duration = TimeSpan.FromSeconds(1);
             Vibration.Vibrate(duration);
@@ -134,6 +159,19 @@ namespace IDV300Term1
             });
         }
 
+        void updateHealthUI()
+        {
+            Device.BeginInvokeOnMainThread( () =>
+            {
+                healthImage.Source = "health_" + yoshi.CurrentHealthState;
+
+                if (yoshi.CurrentHealthState == HealthState.bad)
+                {
+                    YoshiSick();
+                }
+            });
+        }
+
         private async void YoshiStarved()
         {
             await DisplayAlert("Starved", "Yoshi has starved to death", "Try Again");
@@ -157,6 +195,14 @@ namespace IDV300Term1
             yoshi.CurrentBedState = BedState.good;
             ResetBedTimer();
             updateBedUI();
+        }
+
+        private async void YoshiSick()
+        {
+            await DisplayAlert("Sick", "Yoshi has died form being sick", "Try Again");
+            yoshi.CurrentHealthState = HealthState.good;
+            ResetHealthTimer();
+            updateHealthUI();
         }
 
         private void StartTimer()
@@ -192,6 +238,15 @@ namespace IDV300Term1
             bedTimer.Start();
         }
 
+        private void StartHealthTimer()
+        {
+            healthTimer = new Timer();
+            healthTimer.Interval = 1000;
+            healthTimer.Enabled = true;
+            healthTimer.Elapsed += UpdateHealthData;
+            healthTimer.Start();
+        }
+
         private void ResetFoodTimer()
         {
             foodTimeKeeper.FoodStartTime = DateTime.Now;
@@ -202,6 +257,12 @@ namespace IDV300Term1
         {
             bedTimeKeeper.BedStartTime = DateTime.Now;
             StartBedTimer();
+        }
+
+        private void ResetHealthTimer()
+        {
+            healthTimeKeeper.HealthStartTime = DateTime.Now;
+            StartHealthTimer();
         }
 
         private void UpdateTimedData(object sender, ElapsedEventArgs e)
@@ -294,6 +355,36 @@ namespace IDV300Term1
                 yoshi.CurrentBedState = newBedState;
 
                 updateBedUI();
+            }
+
+        }
+
+        private void UpdateHealthData(object sender, ElapsedEventArgs e)
+        {
+            TimeSpan healthTimeElapsed = e.SignalTime - healthTimeKeeper.HealthStartTime;
+
+            HealthState newHealthState = yoshi.CurrentHealthState;
+
+            if (healthTimeElapsed.TotalSeconds < 10)
+            {
+                newHealthState = HealthState.good;
+
+            }
+            else if (healthTimeElapsed.TotalSeconds < 20)
+            {
+                newHealthState = HealthState.normal;
+
+            }
+            else if (healthTimeElapsed.TotalSeconds >= 20)
+            {
+                newHealthState = HealthState.bad;
+
+            }
+            if (newHealthState != yoshi.CurrentHealthState)
+            {
+                yoshi.CurrentHealthState = newHealthState;
+
+                updateHealthUI();
             }
 
         }
