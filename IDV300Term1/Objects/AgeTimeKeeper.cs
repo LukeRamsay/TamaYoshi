@@ -7,7 +7,7 @@ namespace IDV300Term1.Objects
         const string ageStartTimeKey = "ageStartTime";
         const string ageStoredTimekey = "ageStoredTime";
 
-        public DateTime ageStartTime
+        public DateTime AgeStartTime
         {
             get
             {
@@ -54,7 +54,7 @@ namespace IDV300Term1.Objects
 
         public double GetTimeElapsed()
         {
-            return (ageStoredTime - ageStartTime).TotalSeconds;
+            return (ageStoredTime - AgeStartTime).TotalSeconds;
         }
     }
 }

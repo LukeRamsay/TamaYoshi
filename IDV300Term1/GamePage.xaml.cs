@@ -20,6 +20,8 @@ namespace IDV300Term1
     public partial class GamePage : PopupPage
     {
         private Yoshi yoshi = new Yoshi();
+        private MainPage mainPage = new MainPage();
+
 
         public GamePage()
         {
@@ -30,8 +32,12 @@ namespace IDV300Term1
         async void SaveYoshiName(object sender, EventArgs e)
         {
             yoshi.YoshiName = NameInput.Text;
-            await PopupNavigation.Instance.PopAsync();
             
+            await PopupNavigation.Instance.PopAsync();
+
+            mainPage.updateUI();
+            //Xamarin.Forms.MessagingCenter.Send<App>((App)Xamarin.Forms.Application.Current, "CallMethod");
+
         }
     }
 }

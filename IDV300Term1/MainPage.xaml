@@ -5,7 +5,7 @@
     <Grid>
         <Grid.GestureRecognizers> <SwipeGestureRecognizer  Direction="Left" Swiped="SwipeLeft"></SwipeGestureRecognizer></Grid.GestureRecognizers>
         <StackLayout VerticalOptions="StartAndExpand" HeightRequest="500" BackgroundColor="#ececec" TranslationY="-20">
-            <Image VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="150" WidthRequest="150" Margin="0, 160, 0, 0" x:Name="yoshiImage" Source="yoshi_adult"></Image>
+            <Image VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="150" WidthRequest="150" Margin="0, 160, 0, 0" x:Name="yoshiImage" Source="yoshi_egg"></Image>
         </StackLayout>
         
         <StackLayout VerticalOptions="EndAndExpand" HeightRequest="450" BackgroundColor="#F7F7F7">

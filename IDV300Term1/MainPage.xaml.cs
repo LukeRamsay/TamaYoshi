@@ -49,6 +49,8 @@ namespace IDV300Term1
 
             updateHealthUI();
 
+            updateAgeUI();
+
             StartTimer();
 
             StartFoodTimer();
@@ -66,6 +68,10 @@ namespace IDV300Term1
                 );
                 return true;
             });
+
+            //Xamarin.Forms.MessagingCenter.Subscribe(this, "CallMethod", (sender) => 
+            //updateUI();
+            //});
 
         }
 
@@ -123,6 +129,8 @@ namespace IDV300Term1
 
             updateHealthUI();
 
+            updateAgeUI();
+
             var duration = TimeSpan.FromSeconds(1);
             Vibration.Vibrate(duration);
 
@@ -131,7 +139,7 @@ namespace IDV300Term1
             player.Play();
         }
 
-        void updateUI()
+        public void updateUI()
         {
             if (NameButton.Text != yoshi.YoshiName)
             {
@@ -302,12 +310,6 @@ namespace IDV300Term1
             StartHealthTimer();
         }
 
-        private void ResetAgeTimer()
-        {
-            ageTimeKeeper.ageStartTime = DateTime.Now;
-            StartAgeTimer();
-        }
-
         private void UpdateTimedData(object sender, ElapsedEventArgs e)
         {
             TimeSpan timeElapsed = e.SignalTime - timeKeeper.StartTime;
@@ -346,11 +348,9 @@ namespace IDV300Term1
             }
         }
 
-        public void UpdateAgeData(object sender, ElapsedEventArgs e)
+        private void UpdateAgeData(object sender, ElapsedEventArgs e)
         {
-            TimeSpan ageTimeElapsed = e.SignalTime - ageTimeKeeper.ageStartTime;
-
-            double daysOld = ageTimeElapsed.Seconds;
+            TimeSpan ageTimeElapsed = e.SignalTime - ageTimeKeeper.AgeStartTime;
 
             AgeState newAgeState = yoshi.CurrentAgeState;
 
