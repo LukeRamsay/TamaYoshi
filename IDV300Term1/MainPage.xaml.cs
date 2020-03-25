@@ -178,6 +178,16 @@ namespace IDV300Term1
             });
         }
 
+        void updateAgeUI()
+        {
+            Device.BeginInvokeOnMainThread(() =>
+            {
+                yoshiImage.Source = "yoshi_" + yoshi.CurrentAgeState;
+
+               
+            });
+        }
+
         void updateHealthUI()
         {
             Device.BeginInvokeOnMainThread( () =>
@@ -343,6 +353,24 @@ namespace IDV300Term1
             double daysOld = ageTimeElapsed.Seconds;
 
             AgeState newAgeState = yoshi.CurrentAgeState;
+
+            if (ageTimeElapsed.TotalSeconds < 10)
+            {
+                newAgeState = AgeState.egg;
+
+            }
+            else if (ageTimeElapsed.TotalSeconds < 30)
+            {
+                newAgeState = AgeState.adult;
+
+            }
+            
+            if (newAgeState != yoshi.CurrentAgeState)
+            {
+                yoshi.CurrentAgeState = newAgeState;
+
+                updateAgeUI();
+            }
 
         }
 
