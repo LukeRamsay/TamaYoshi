@@ -9,14 +9,18 @@
                  HorizontalOptions="Center"
                  VerticalOptions="Center">
         <StackLayout>
-            <Entry FontSize="30"
+            <Entry
+                WidthRequest="200"
+                FontSize="30"
                     MaxLength="10"
+                Placeholder="New Name"
                    IsTextPredictionEnabled="False"
                    x:Name="NameInput"/>
         </StackLayout>
         <Button BackgroundColor="DodgerBlue"
                 FontSize="30"
-                Text="Login"
+                WidthRequest="200"
+                Text="Change Name"
                 TextColor="White"
                 Clicked="SaveYoshiName"/>
     </StackLayout>

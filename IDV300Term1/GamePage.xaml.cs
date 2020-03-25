@@ -11,6 +11,7 @@ using Xamarin.Essentials;
 using Rg.Plugins.Popup.Pages;
 using Rg.Plugins.Popup.Services;
 using Xamarin.Forms.Xaml;
+using IDV300Term1;
 
 
 namespace IDV300Term1
@@ -29,7 +30,8 @@ namespace IDV300Term1
         async void SaveYoshiName(object sender, EventArgs e)
         {
             yoshi.YoshiName = NameInput.Text;
-            await PopupNavigation.Instance.PopAsync(true);
+            await PopupNavigation.Instance.PopAsync();
+            
         }
     }
 }

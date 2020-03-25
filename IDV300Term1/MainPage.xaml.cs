@@ -25,6 +25,8 @@ namespace IDV300Term1
 
         private HealthTimeKeeper healthTimeKeeper = new HealthTimeKeeper();
 
+        private AgeTimeKeeper ageTimeKeeper = new AgeTimeKeeper();
+
         private static Timer timer;
 
         private static Timer foodTimer;
@@ -32,6 +34,8 @@ namespace IDV300Term1
         private static Timer bedTimer;
 
         private static Timer healthTimer;
+
+        private static Timer ageTimer;
 
         public MainPage()
         {
@@ -53,6 +57,16 @@ namespace IDV300Term1
 
             StartHealthTimer();
 
+            StartAgeTimer();
+
+            Device.StartTimer(TimeSpan.FromSeconds(1), () =>
+            {
+                Device.BeginInvokeOnMainThread(() =>
+                    lbltime.Text = DateTime.Now.ToString("HH.mm:ss")
+                );
+                return true;
+            });
+
         }
 
         void feedYoshiTapped(System.Object sender, System.EventArgs e)
@@ -71,6 +85,11 @@ namespace IDV300Term1
 
         void bathYoshiTapped(System.Object sender, System.EventArgs e)
         {
+            if (NameButton.Text != yoshi.YoshiName)
+            {
+                NameButton.Text = yoshi.YoshiName;
+            }
+
             ResetTimer();
 
             updateUI();
@@ -121,6 +140,7 @@ namespace IDV300Term1
 
             Device.BeginInvokeOnMainThread( () =>
             {
+              
                 bathImage.Source = "shower_" + yoshi.CurrentBathState;
                 
 
@@ -227,6 +247,15 @@ namespace IDV300Term1
             foodTimer.Start();
         }
 
+        private void StartAgeTimer()
+        {
+            ageTimer = new Timer();
+            ageTimer.Interval = 1000;
+            ageTimer.Enabled = true;
+            ageTimer.Elapsed += UpdateAgeData;
+            ageTimer.Start();
+        }
+
         private void StartBedTimer()
         {
             bedTimer = new Timer();
@@ -261,6 +290,12 @@ namespace IDV300Term1
         {
             healthTimeKeeper.HealthStartTime = DateTime.Now;
             StartHealthTimer();
+        }
+
+        private void ResetAgeTimer()
+        {
+            ageTimeKeeper.ageStartTime = DateTime.Now;
+            StartAgeTimer();
         }
 
         private void UpdateTimedData(object sender, ElapsedEventArgs e)
@@ -301,6 +336,16 @@ namespace IDV300Term1
             }
         }
 
+        public void UpdateAgeData(object sender, ElapsedEventArgs e)
+        {
+            TimeSpan ageTimeElapsed = e.SignalTime - ageTimeKeeper.ageStartTime;
+
+            double daysOld = ageTimeElapsed.Seconds;
+
+            AgeState newAgeState = yoshi.CurrentAgeState;
+
+        }
+
         private void UpdateFoodData(object sender, ElapsedEventArgs e)
         {
             TimeSpan foodTimeElapsed = e.SignalTime - foodTimeKeeper.FoodStartTime;
@@ -325,7 +370,6 @@ namespace IDV300Term1
             if (newFoodState != yoshi.CurrentFoodState)
             {
                 yoshi.CurrentFoodState = newFoodState;
-
 
                 updateFoodUI();
             }
