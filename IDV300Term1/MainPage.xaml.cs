@@ -41,6 +41,49 @@ namespace IDV300Term1
         {
             InitializeComponent();
 
+            StartAgeTimer();
+
+            ResetAgeTimer();
+
+            updateAgeUI();
+
+            //Getting the current time(will be used to determine how old the yoshi is)
+            Device.StartTimer(TimeSpan.FromSeconds(1), () =>
+            {
+                Device.BeginInvokeOnMainThread(() =>
+                    lbltime.Text = DateTime.Now.ToString("HH.mm:ss")
+                );
+                return true;
+            });
+
+            //This messagign centre was used to try and update the label for the name automatically but
+            //MessagingCenter.Subscribe<MainPage>(this, "Hi", (GamePage) =>
+            //{
+            //    updateNameUI();
+            //});
+
+        }
+
+        //trying to update the name ui whenever the page appears or disapears
+        //protected override void OnAppearing()
+        //{
+        //    base.OnAppearing();
+
+        //    updateNameUI();
+        //}
+
+        //protected override void OnDisappearing()
+        //{
+        //    base.OnDisappearing();
+
+        //    updateNameUI();
+        //}
+
+
+        //Starting all of the timers once the egg is ready to hatch
+        void hatchYoshiTapped(System.Object sender, System.EventArgs e)
+        {
+
             updateUI();
 
             updateFoodUI();
@@ -48,8 +91,6 @@ namespace IDV300Term1
             updateBedUI();
 
             updateHealthUI();
-
-            updateAgeUI();
 
             StartTimer();
 
@@ -59,107 +100,83 @@ namespace IDV300Term1
 
             StartHealthTimer();
 
-            StartAgeTimer();
+        }
 
-            Device.StartTimer(TimeSpan.FromSeconds(1), () =>
-            {
-                Device.BeginInvokeOnMainThread(() =>
-                    lbltime.Text = DateTime.Now.ToString("HH.mm:ss")
-                );
-                return true;
-            });
+        //Grouping the button sounds and vibration when clicked 
+        void buttonFunctionality(System.Object sender, System.EventArgs e)
+        {
+            var duration = TimeSpan.FromSeconds(1);
+            Vibration.Vibrate(duration);
 
-            //Xamarin.Forms.MessagingCenter.Subscribe(this, "CallMethod", (sender) => 
-            //updateUI();
-            //});
+            var player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
+            player.Load("button_click.mp3");
+            player.Play();
 
         }
 
+
+        //Resetign timer for the hunger need and food ui
         void feedYoshiTapped(System.Object sender, System.EventArgs e)
         {
             ResetFoodTimer();
 
             updateFoodUI();
-
-            var duration = TimeSpan.FromSeconds(1);
-            Vibration.Vibrate(duration);
-
-            var player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
-            player.Load("button_click.mp3");
-            player.Play();
         }
 
+        //Reseting timer for hygiene need and bath ui
         void bathYoshiTapped(System.Object sender, System.EventArgs e)
         {
-            if (NameButton.Text != yoshi.YoshiName)
-            {
-                NameButton.Text = yoshi.YoshiName;
-            }
 
             ResetTimer();
 
             updateUI();
-
-            var duration = TimeSpan.FromSeconds(1);
-            Vibration.Vibrate(duration);
-
-            var player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
-            player.Load("button_click.mp3");
-            player.Play();
            
         }
 
+        //Reseting timer for sleep need and sleep ui
         void bedYoshiTapped(System.Object sender, System.EventArgs e)
         {
             ResetBedTimer();
 
             updateBedUI();
-
-            var duration = TimeSpan.FromSeconds(1);
-            Vibration.Vibrate(duration);
-
-            var player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
-            player.Load("button_click.mp3");
-            player.Play();
         }
 
+        //Resetting the timer for health and its ui
         void healthYoshiTapped(System.Object sender, System.EventArgs e)
         {
             ResetHealthTimer();
 
             updateHealthUI();
-
-            updateAgeUI();
-
-            var duration = TimeSpan.FromSeconds(1);
-            Vibration.Vibrate(duration);
-
-            var player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
-            player.Load("button_click.mp3");
-            player.Play();
         }
 
-        public void updateUI()
+        //Updating the name text when it is changed (trying to call it on the name page so it automactically updates when navigating.)
+        public void updateNameUI(System.Object sender, System.EventArgs e)
         {
-            if (NameButton.Text != yoshi.YoshiName)
+            Device.BeginInvokeOnMainThread(() =>
             {
-                NameButton.Text = yoshi.YoshiName;
-            }
+
+                if(NameButton.Text != yoshi.YoshiName)
+                {
+                    NameButton.Text = yoshi.YoshiName;
+                };
+
+            });
+
+        }
+
+        //Changing the bath image based on the state of the hygiene need
+        void updateUI()
+        {
 
             Device.BeginInvokeOnMainThread( () =>
             {
               
                 bathImage.Source = "shower_" + yoshi.CurrentBathState;
-                
 
-                if (yoshi.CurrentBathState == BathState.bad)
-                {
-                    YoshiDirty();
-                }
             });
         }
 
-
+        //Changing the food image based on the state of the hunger need
         void updateFoodUI()
         {
             Device.BeginInvokeOnMainThread( () =>
@@ -173,29 +190,27 @@ namespace IDV300Term1
             });
         }
 
+        //Changing the bed image based on the state of the sleep need
         void updateBedUI()
         {
             Device.BeginInvokeOnMainThread( () =>
             {
                 bedImage.Source = "bed_" + yoshi.CurrentBedState;
 
-                if (yoshi.CurrentBedState == BedState.bad)
-                {
-                    YoshiExuasted();
-                }
             });
         }
 
+        //Changing the Yoshi image based on the age state so if he is an egg or an elder ect (This might chnage)
         void updateAgeUI()
         {
             Device.BeginInvokeOnMainThread(() =>
             {
                 yoshiImage.Source = "yoshi_" + yoshi.CurrentAgeState;
-
                
             });
         }
 
+        //Changing the health image based on the state of the health need
         void updateHealthUI()
         {
             Device.BeginInvokeOnMainThread( () =>
@@ -209,38 +224,46 @@ namespace IDV300Term1
             });
         }
 
+        //Alerting the user if the yoshi has not been fed for too long
         private async void YoshiStarved()
         {
+            updateHealthUI();
             await DisplayAlert("Starved", "Yoshi has starved to death", "Try Again");
             yoshi.CurrentFoodState = FoodState.good;
+            yoshi.CurrentBathState = BathState.good;
+            yoshi.CurrentHealthState = HealthState.good;
+            yoshi.CurrentBedState = BedState.good;
+            ResetBedTimer();
             ResetFoodTimer();
+            ResetHealthTimer();
+            ResetTimer();
+            updateBedUI();
+            updateUI();
+            updateHealthUI();
             updateFoodUI();
         }
 
-        private async void YoshiDirty()
-        {
-            await DisplayAlert("Dirty", "Yoshi has died form being dirty", "Try Again");
-            yoshi.CurrentBathState = BathState.good;
-            ResetTimer();
-            updateUI();
-        }
-
-        private async void YoshiExuasted()
-        {
-            await DisplayAlert("Exuasted", "Yoshi has died form being too tired", "Try Again");
-            yoshi.CurrentBedState = BedState.good;
-            ResetBedTimer();
-            updateBedUI();
-        }
-
+        //Alerting the user if the yoshi has become too sick
         private async void YoshiSick()
         {
+            updateFoodUI();
             await DisplayAlert("Sick", "Yoshi has died form being sick", "Try Again");
+            yoshi.CurrentFoodState = FoodState.good;
+            yoshi.CurrentBathState = BathState.good;
             yoshi.CurrentHealthState = HealthState.good;
+            yoshi.CurrentBedState = BedState.good;
+            ResetBedTimer();
+            ResetFoodTimer();
             ResetHealthTimer();
+            ResetTimer();
+            updateBedUI();
+            updateUI();
             updateHealthUI();
+            updateFoodUI();
         }
 
+
+        //Timer used for bath need
         private void StartTimer()
         {
             timer = new Timer();
@@ -250,12 +273,7 @@ namespace IDV300Term1
             timer.Start();
         }
 
-        private void ResetTimer()
-        {
-            timeKeeper.StartTime = DateTime.Now;
-            StartTimer();
-        }
-
+        //Timer used for the hunger need
         private void StartFoodTimer()
         {
             foodTimer = new Timer();
@@ -265,6 +283,7 @@ namespace IDV300Term1
             foodTimer.Start();
         }
 
+        //Timer used for aging
         private void StartAgeTimer()
         {
             ageTimer = new Timer();
@@ -274,6 +293,7 @@ namespace IDV300Term1
             ageTimer.Start();
         }
 
+        //Timer used for sleep need
         private void StartBedTimer()
         {
             bedTimer = new Timer();
@@ -283,6 +303,7 @@ namespace IDV300Term1
             bedTimer.Start();
         }
 
+        //Timer used for health need
         private void StartHealthTimer()
         {
             healthTimer = new Timer();
@@ -292,24 +313,43 @@ namespace IDV300Term1
             healthTimer.Start();
         }
 
+        //Reset for bath need timer
+        private void ResetTimer()
+        {
+            timeKeeper.StartTime = DateTime.Now;
+            StartTimer();
+        }
+
+        //Reset for food need timer
         private void ResetFoodTimer()
         {
             foodTimeKeeper.FoodStartTime = DateTime.Now;
             StartFoodTimer();
         }
 
+        //Reset for aging timer
+        private void ResetAgeTimer()
+        {
+            ageTimeKeeper.AgeStartTime = DateTime.Now;
+            StartAgeTimer();
+        }
+
+        //Reset for sleep need timer
         private void ResetBedTimer()
         {
             bedTimeKeeper.BedStartTime = DateTime.Now;
             StartBedTimer();
         }
 
+        //Reset for health need timer
         private void ResetHealthTimer()
         {
             healthTimeKeeper.HealthStartTime = DateTime.Now;
             StartHealthTimer();
         }
 
+
+        //Using the timer to change the state of the bath need and calling to update the bath ui
         private void UpdateTimedData(object sender, ElapsedEventArgs e)
         {
             TimeSpan timeElapsed = e.SignalTime - timeKeeper.StartTime;
@@ -348,6 +388,7 @@ namespace IDV300Term1
             }
         }
 
+        //Using the timer to change the age state of the Yoshi need and calling to update the age ui
         private void UpdateAgeData(object sender, ElapsedEventArgs e)
         {
             TimeSpan ageTimeElapsed = e.SignalTime - ageTimeKeeper.AgeStartTime;
@@ -374,6 +415,7 @@ namespace IDV300Term1
 
         }
 
+        //Using the timer to change the state of the hunger need and calling to update the food ui
         private void UpdateFoodData(object sender, ElapsedEventArgs e)
         {
             TimeSpan foodTimeElapsed = e.SignalTime - foodTimeKeeper.FoodStartTime;
@@ -404,6 +446,7 @@ namespace IDV300Term1
 
         }
 
+        //Using the timer to change the state of the sleep need and calling to update the bed ui
         private void UpdateBedData(object sender, ElapsedEventArgs e)
         {
             TimeSpan bedTimeElapsed = e.SignalTime - bedTimeKeeper.BedStartTime;
@@ -434,6 +477,7 @@ namespace IDV300Term1
 
         }
 
+        //Using the timer to change the state of the health need and calling to update the health ui
         private void UpdateHealthData(object sender, ElapsedEventArgs e)
         {
             TimeSpan healthTimeElapsed = e.SignalTime - healthTimeKeeper.HealthStartTime;
@@ -464,6 +508,7 @@ namespace IDV300Term1
 
         }
 
+        //Navigating to the popup for chnaging Yoshi's name
         async void SwipeLeft(System.Object sender, System.EventArgs e)
         {
             await PopupNavigation.Instance.PushAsync(new GamePage());
