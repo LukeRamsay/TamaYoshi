@@ -29,15 +29,20 @@ namespace IDV300Term1
 
         }
 
+        //Chnaging yoshi's name and navigating back to the main page
         async void SaveYoshiName(object sender, EventArgs e)
         {
+            
+
             yoshi.YoshiName = NameInput.Text;
             
             await PopupNavigation.Instance.PopAsync();
 
-            mainPage.updateUI();
-            //Xamarin.Forms.MessagingCenter.Send<App>((App)Xamarin.Forms.Application.Current, "CallMethod");
+            //mainPage.updateNameUI();
+            //Trying to call update ui for the changin of the name when navigating back to the original page
+            // MessagingCenter.Send<GamePage>(this, "Hi");
 
         }
+
     }
 }

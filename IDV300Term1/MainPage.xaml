@@ -1,9 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:d="http://xamarin.com/schemas/2014/forms/design" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="IDV300Term1.MainPage" xmlns:local="clr-namespace:IDV300Term1">
 
+
 <ContentPage.Content>
     <Grid>
-        <Grid.GestureRecognizers> <SwipeGestureRecognizer  Direction="Left" Swiped="SwipeLeft"></SwipeGestureRecognizer></Grid.GestureRecognizers>
+        <Grid.GestureRecognizers> <SwipeGestureRecognizer  Direction="Left" Swiped="SwipeLeft"></SwipeGestureRecognizer> <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="updateNameUI" ></TapGestureRecognizer></Grid.GestureRecognizers>
         <StackLayout VerticalOptions="StartAndExpand" HeightRequest="500" BackgroundColor="#ececec" TranslationY="-20">
             <Image VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="150" WidthRequest="150" Margin="0, 160, 0, 0" x:Name="yoshiImage" Source="yoshi_egg"></Image>
         </StackLayout>
@@ -20,14 +21,14 @@
             </Grid>
         </Frame>
         <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-        <Frame VerticalOptions="Center" HeightRequest="40" WidthRequest="40" CornerRadius="40" Margin="0, 250, 0, 0" HasShadow="True"> <Image x:Name="foodImage" Source="food_good" Margin="10" ></Image> </Frame>
-        <Frame VerticalOptions="Center" HeightRequest="40" WidthRequest="40" CornerRadius="40" Margin="10, 250, 10, 0" HasShadow="True"> <Image x:Name="bathImage" Source="shower_good" Margin="10"></Image> </Frame>
-        <Frame VerticalOptions="Center" HeightRequest="40" WidthRequest="40" CornerRadius="40" Margin="0, 250, 10, 0" HasShadow="True"> <Image x:Name="bedImage" Source="bed_good" Margin="10"></Image> </Frame>
-        <Frame VerticalOptions="Center" HeightRequest="40" WidthRequest="40" CornerRadius="40" Margin="0, 250, 0, 0" HasShadow="True"> <Image x:Name="healthImage" Source="health_good" Margin="10"></Image> </Frame>
+        <Frame VerticalOptions="Center" HeightRequest="40" WidthRequest="40" CornerRadius="40" Margin="0, 250, 0, 0" HasShadow="True"> <Image x:Name="foodImage" Source="food_good" Margin="10" ><Image.GestureRecognizers><TapGestureRecognizer NumberOfTapsRequired="1" Tapped="feedYoshiTapped"></TapGestureRecognizer></Image.GestureRecognizers></Image> </Frame>
+        <Frame VerticalOptions="Center" HeightRequest="40" WidthRequest="40" CornerRadius="40" Margin="10, 250, 10, 0" HasShadow="True"> <Frame.GestureRecognizers><TapGestureRecognizer NumberOfTapsRequired="1" Tapped="bathYoshiTapped"> </TapGestureRecognizer></Frame.GestureRecognizers>  <Image x:Name="bathImage" Source="shower_good" Margin="10"></Image> </Frame>
+        <Frame VerticalOptions="Center" HeightRequest="40" WidthRequest="40" CornerRadius="40" Margin="0, 250, 10, 0" HasShadow="True"> <Frame.GestureRecognizers><TapGestureRecognizer NumberOfTapsRequired="1" Tapped="bedYoshiTapped"> </TapGestureRecognizer></Frame.GestureRecognizers>  <Image x:Name="bedImage" Source="bed_good" Margin="10"></Image> </Frame>
+        <Frame VerticalOptions="Center" HeightRequest="40" WidthRequest="40" CornerRadius="40" Margin="0, 250, 0, 0" HasShadow="True"> <Frame.GestureRecognizers><TapGestureRecognizer NumberOfTapsRequired="1" Tapped="healthYoshiTapped"> </TapGestureRecognizer></Frame.GestureRecognizers>  <Image x:Name="healthImage" Source="health_good" Margin="10"></Image> </Frame>
         </StackLayout>
         <Label x:Name="lbltime" VerticalOptions="Center" HorizontalOptions="Start" Margin="25, 450, 25, 0" HeightRequest="40" FontAttributes="Bold" FontSize="Title" Text=""></Label>
         <Label  VerticalOptions="Center" HorizontalOptions="Start" Margin="25, 600, 25, 0" HeightRequest="100" FontSize="Body">Your yoshi currenly is in need of (needs), Your Yoshi is currently (number) days old making him an (stage), Your Yoshi was born on (date).</Label>
-        <Button HorizontalOptions="Start" VerticalOptions="CenterAndExpand" HeightRequest="40" WidthRequest="200" FontSize="30" Text="Name" BackgroundColor="Transparent" Margin="105, 10, 0, 10" x:Name="NameButton" Clicked="SwipeLeft"></Button>
+        <Button HorizontalOptions="Start" VerticalOptions="CenterAndExpand" HeightRequest="40" WidthRequest="200" FontSize="30" Text="" BackgroundColor="Transparent" Margin="105, 10, 0, 10" x:Name="NameButton" Clicked="SwipeLeft"></Button>
         <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="End">
             <Button Clicked="feedYoshiTapped" x:Name="foodButton" Text="FEED"  HeightRequest="40" BackgroundColor="#F4f4f4" Margin="10, 360, 20, 50" CornerRadius="20" TextColor="#3F3F3F" WidthRequest="70"/>
             <Button Clicked="bathYoshiTapped" x:Name="bathButton" Text="BATH" WidthRequest="{Binding Path=Width, Source={x:Reference foodButton}}" Margin="10, 360, 20, 50" HeightRequest="40" BackgroundColor="#f4f4f4" TextColor="#3F3F3F" CornerRadius="20" />
