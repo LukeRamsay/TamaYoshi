@@ -11,6 +11,7 @@ namespace IDV300Term1.Objects
         const string ageStateKey = "ageState";
         const string nameKey = "yoshiName";
 
+        //Getting and Setting yoshi's current hunger state
         public FoodState CurrentFoodState
         {
             get
@@ -32,6 +33,7 @@ namespace IDV300Term1.Objects
             }
         }
 
+        //Getting and Setting yoshi's current age
         public AgeState CurrentAgeState
         {
             get
@@ -53,6 +55,7 @@ namespace IDV300Term1.Objects
             }
         }
 
+        //Getting and Setting yoshi's current bath state
         public BathState CurrentBathState
         {
             get
@@ -74,6 +77,7 @@ namespace IDV300Term1.Objects
             }
         }
 
+        //Getting and Setting yoshi's current sleep state
         public BedState CurrentBedState
         {
             get
@@ -95,6 +99,7 @@ namespace IDV300Term1.Objects
             }
         }
 
+        //Getting and Setting yoshi's current health state
         public HealthState CurrentHealthState
         {
             get
@@ -116,6 +121,7 @@ namespace IDV300Term1.Objects
             }
         }
 
+        //Getting and Setting yoshi's name
         public string YoshiName
         {
             get

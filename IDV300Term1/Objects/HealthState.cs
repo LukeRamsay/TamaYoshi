@@ -1,5 +1,6 @@
 ﻿using System;
 namespace IDV300Term1.Objects
+//Getting and Setting health states to use in mainpage
 {
     public enum HealthState
     {

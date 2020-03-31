@@ -1,5 +1,6 @@
 ﻿using System;
 namespace IDV300Term1.Objects
+//Timer for yoshi's health need
 {
     public class HealthTimeKeeper
     {

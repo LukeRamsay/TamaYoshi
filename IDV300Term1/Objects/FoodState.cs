@@ -1,5 +1,6 @@
 ﻿using System;
 namespace IDV300Term1.Objects
+//Getting and Setting food states to use in mainpage
 {
     public enum FoodState
     {

@@ -4,6 +4,7 @@
 
 <ContentPage.Content>
     <Grid>
+        <!-- The swipe gesture is used for navigating to the rename page, the tap gesture is used to update the name(the only solution I could think of)-->
         <Grid.GestureRecognizers> <SwipeGestureRecognizer  Direction="Left" Swiped="SwipeLeft"></SwipeGestureRecognizer> <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="updateNameUI" ></TapGestureRecognizer></Grid.GestureRecognizers>
         <StackLayout VerticalOptions="StartAndExpand" HeightRequest="500" BackgroundColor="#ececec" TranslationY="-20">
             <Image VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="150" WidthRequest="150" Margin="0, 160, 0, 0" x:Name="yoshiImage" Source="yoshi_egg"></Image>
