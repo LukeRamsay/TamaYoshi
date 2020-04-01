@@ -47,6 +47,10 @@ namespace IDV300Term1
 
             updateAgeUI();
 
+            var bSound = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
+            bSound.Load("yoshi-background.mp3");
+            bSound.Play();
+
             //Getting the current time(will be used to determine how old the yoshi is)
             Device.StartTimer(TimeSpan.FromSeconds(1), () =>
             {
@@ -108,9 +112,9 @@ namespace IDV300Term1
             var duration = TimeSpan.FromSeconds(1);
             Vibration.Vibrate(duration);
 
-            var player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
-            player.Load("button_click.mp3");
-            player.Play();
+            //var player = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
+            //player.Load("button_click.mp3");
+            //player.Play();
 
         }
 
@@ -121,6 +125,10 @@ namespace IDV300Term1
             ResetFoodTimer();
 
             updateFoodUI();
+
+            var foodSound = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
+            foodSound.Load("yoshi-eat.mp3");
+            foodSound.Play();
         }
 
         //Reseting timer for hygiene need and bath ui
@@ -130,7 +138,11 @@ namespace IDV300Term1
             ResetTimer();
 
             updateUI();
-           
+
+            var bathSound = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
+            bathSound.Load("yoshi-shower.mp3");
+            bathSound.Play();
+
         }
 
         //Reseting timer for sleep need and sleep ui
@@ -139,6 +151,10 @@ namespace IDV300Term1
             ResetBedTimer();
 
             updateBedUI();
+
+            var bedSound = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
+            bedSound.Load("yoshi-sleep.mp3");
+            bedSound.Play();
         }
 
         //Resetting the timer for health and its ui
@@ -147,6 +163,10 @@ namespace IDV300Term1
             ResetHealthTimer();
 
             updateHealthUI();
+
+            var healSound = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
+            healSound.Load("yoshi-heal.mp3");
+            healSound.Play();
         }
 
         //Updating the name text when it is changed (trying to call it on the name page so it automactically updates when navigating.)
@@ -241,6 +261,10 @@ namespace IDV300Term1
             updateUI();
             updateHealthUI();
             updateFoodUI();
+
+            var deadSound = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
+            deadSound.Load("yoshi-dead.mp3");
+            deadSound.Play();
         }
 
         //Alerting the user if the yoshi has become too sick
@@ -260,6 +284,10 @@ namespace IDV300Term1
             updateUI();
             updateHealthUI();
             updateFoodUI();
+
+            var deadSound = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
+            deadSound.Load("yoshi-dead.mp3");
+            deadSound.Play();
         }
 
 

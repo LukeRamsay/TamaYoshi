@@ -192,6 +192,12 @@
     <Folder Include="Assets.xcassets\yoshi_teen.imageset\" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\button_click.mp3" />
+    <BundleResource Include="Resources\yoshi-background.mp3" />
+    <BundleResource Include="Resources\yoshi-dead.mp3" />
+    <BundleResource Include="Resources\yoshi-eat.mp3" />
+    <BundleResource Include="Resources\yoshi-hatch.mp3" />
+    <BundleResource Include="Resources\yoshi-heal.mp3" />
+    <BundleResource Include="Resources\yoshi-shower.mp3" />
+    <BundleResource Include="Resources\yoshi-sleep.mp3" />
   </ItemGroup>
 </Project>

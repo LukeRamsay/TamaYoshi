@@ -174,5 +174,14 @@
       <Name>IDV300Term1</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\yoshi-background.mp3" />
+    <AndroidAsset Include="Assets\yoshi-dead.mp3" />
+    <AndroidAsset Include="Assets\yoshi-eat.mp3" />
+    <AndroidAsset Include="Assets\yoshi-hatch.mp3" />
+    <AndroidAsset Include="Assets\yoshi-heal.mp3" />
+    <AndroidAsset Include="Assets\yoshi-shower.mp3" />
+    <AndroidAsset Include="Assets\yoshi-sleep.mp3" />
+  </ItemGroup>
  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
