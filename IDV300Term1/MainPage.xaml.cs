@@ -47,11 +47,9 @@ namespace IDV300Term1
 
             updateAgeUI();
 
-            
-
-            var bSound = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
-            bSound.Load("yoshi-background.mp3");
-            bSound.Play();
+            //var bSound = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
+            //bSound.Load("yoshi-background.mp3");
+            //bSound.Play();
 
             //Getting the current time(will be used to determine how old the yoshi is)
 
