@@ -55,13 +55,18 @@ namespace IDV300Term1
 
             Device.BeginInvokeOnMainThread(() =>
             {
-
-                lbltime.Text = "Your yoshi was born on " + DateTime.Now.ToString("HH.mm:ss");
+              
+                lbltime.Text = "Your yoshi was born on " + DateTime.Now.ToString("dd-MM-yyyy") + " at " + DateTime.Now.ToString("hh:mm");
 
             });
-             
-               
-        
+
+            Device.StartTimer(TimeSpan.FromSeconds(1), () =>
+            {
+                Device.BeginInvokeOnMainThread(() =>
+                    lblold.Text = "Your Yoshi has been alive for " + DateTime.Now.ToString("ss") + " seconds" 
+                );
+                return true;
+            });
 
             //This messagign centre was used to try and update the label for the name automatically but
             //MessagingCenter.Subscribe<MainPage>(this, "Hi", (GamePage) =>
@@ -87,7 +92,7 @@ namespace IDV300Term1
         //}
 
 
-        //Starting all of the timers once the egg is ready to hatch
+        //Starting all of the timers once the egg is ready to hatch (not used, needs ae activated by clicking on each one once)
         void hatchYoshiTapped(System.Object sender, System.EventArgs e)
         {
             //trying to hide all the buttons while yoshi is an egg and only let him hatch once user clicks on a button which will show the hidden buttons
