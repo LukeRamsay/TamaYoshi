@@ -140,6 +140,8 @@
     <ImageAsset Include="Assets.xcassets\health_normal.imageset\care %283%29.png" />
     <ImageAsset Include="Assets.xcassets\health_bad.imageset\care %282%29.png" />
     <ImageAsset Include="Assets.xcassets\health_good.imageset\care %281%29.png" />
+    <ImageAsset Include="Assets.xcassets\background2.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\background2.imageset\8fb71335a1682f9.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -183,6 +185,8 @@
     <Folder Include="Assets.xcassets\health_good.imageset\" />
     <Folder Include="Assets.xcassets\health_bad.imageset\" />
     <Folder Include="Assets.xcassets\health_normal.imageset\" />
+    <Folder Include="Assets.xcassets\background1.imageset\" />
+    <Folder Include="Assets.xcassets\background2.imageset\" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\button_click.mp3" />

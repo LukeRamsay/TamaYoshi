@@ -6,12 +6,12 @@
     <Grid>
         <!-- The swipe gesture is used for navigating to the rename page, the tap gesture is used to update the name(the only solution I could think of)-->
         <Grid.GestureRecognizers> <SwipeGestureRecognizer  Direction="Left" Swiped="SwipeLeft"></SwipeGestureRecognizer> <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="updateNameUI" ></TapGestureRecognizer></Grid.GestureRecognizers>
-        <StackLayout VerticalOptions="StartAndExpand" HeightRequest="500" BackgroundColor="#ececec" TranslationY="-20">
+        <Grid VerticalOptions="StartAndExpand" HeightRequest="500" BackgroundColor="#ececec" TranslationY="-20">
+            <Image VerticalOptions="StartAndExpand" HorizontalOptions="StartAndExpand" HeightRequest="500" Source="background2"  Scale="2.0" TranslationY="-20">  </Image>
             <Image VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="150" WidthRequest="150" Margin="0, 160, 0, 0" x:Name="yoshiImage" Source="yoshi_egg"></Image>
-        </StackLayout>
+        </Grid>
         
         <StackLayout VerticalOptions="EndAndExpand" HeightRequest="450" BackgroundColor="#F7F7F7">
-            
         </StackLayout>
         <Frame HasShadow="True" CornerRadius="40" Padding="0" VerticalOptions="CenterAndExpand" HeightRequest="80" Margin="30, 0, 30, 0">
 
