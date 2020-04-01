@@ -144,6 +144,7 @@
     <ImageAsset Include="Assets.xcassets\yoshi_teen.imageset\0ed3cf128869f80.png" />
     <ImageAsset Include="Assets.xcassets\yoshi_egg.imageset\383-3831014_yoshis-egg-yoshi-egg-pixel-art.png" />
     <ImageAsset Include="Assets.xcassets\yoshi_adult.imageset\87251-mario-yoshi-green-go-touch-world-line.png" />
+    <InterfaceDefinition Include="Resources\Storyboard.storyboard" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

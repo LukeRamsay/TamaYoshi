@@ -47,18 +47,37 @@ namespace IDV300Term1
 
             updateAgeUI();
 
+            updateUI();
+
+            updateFoodUI();
+
+            updateBedUI();
+
+            updateHealthUI();
+
+            StartTimer();
+
+            StartFoodTimer();
+
+            StartBedTimer();
+
+            StartHealthTimer();
+
             var bSound = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
             bSound.Load("yoshi-background.mp3");
             bSound.Play();
 
             //Getting the current time(will be used to determine how old the yoshi is)
-            Device.StartTimer(TimeSpan.FromSeconds(1), () =>
+
+            Device.BeginInvokeOnMainThread(() =>
             {
-                Device.BeginInvokeOnMainThread(() =>
-                    lbltime.Text = DateTime.Now.ToString("HH.mm:ss")
-                );
-                return true;
+
+                lbltime.Text = "Your yoshi was born on " + DateTime.Now.ToString("HH.mm:ss");
+
             });
+             
+               
+        
 
             //This messagign centre was used to try and update the label for the name automatically but
             //MessagingCenter.Subscribe<MainPage>(this, "Hi", (GamePage) =>
@@ -88,21 +107,10 @@ namespace IDV300Term1
         void hatchYoshiTapped(System.Object sender, System.EventArgs e)
         {
 
-            updateUI();
+            //AgeState newAgeState = yoshi.CurrentAgeState;
 
-            updateFoodUI();
-
-            updateBedUI();
-
-            updateHealthUI();
-
-            StartTimer();
-
-            StartFoodTimer();
-
-            StartBedTimer();
-
-            StartHealthTimer();
+            //newAgeState = AgeState.hatchling;
+            //reset and start age timer
 
         }
 
@@ -226,6 +234,19 @@ namespace IDV300Term1
             Device.BeginInvokeOnMainThread(() =>
             {
                 yoshiImage.Source = "yoshi_" + yoshi.CurrentAgeState;
+
+                if (yoshi.CurrentAgeState == AgeState.egg)
+                {
+                    yoshiImage.Scale = 0.4;
+                }
+                else if (yoshi.CurrentAgeState == AgeState.teen)
+                {
+                    yoshiImage.Scale = 0.5;
+                }
+                else
+                {
+                    yoshiImage.Scale = 1;
+                }
                
             });
         }
@@ -419,6 +440,7 @@ namespace IDV300Term1
         //Using the timer to change the age state of the Yoshi need and calling to update the age ui
         private void UpdateAgeData(object sender, ElapsedEventArgs e)
         {
+
             TimeSpan ageTimeElapsed = e.SignalTime - ageTimeKeeper.AgeStartTime;
 
             AgeState newAgeState = yoshi.CurrentAgeState;
@@ -428,12 +450,16 @@ namespace IDV300Term1
                 newAgeState = AgeState.egg;
 
             }
+            else if (ageTimeElapsed.TotalSeconds < 20)
+            {
+                newAgeState = AgeState.teen;
+            }
             else if (ageTimeElapsed.TotalSeconds < 30)
             {
                 newAgeState = AgeState.adult;
 
             }
-            
+
             if (newAgeState != yoshi.CurrentAgeState)
             {
                 yoshi.CurrentAgeState = newAgeState;
