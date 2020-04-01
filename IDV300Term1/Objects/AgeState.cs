@@ -10,7 +10,7 @@ namespace IDV300Term1.Objects
         adult,
         elder
     }
-    class AgeStates
+    public class AgeStates
     {
         public static string GetAgeString(AgeState ageState)
         {

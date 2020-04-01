@@ -8,7 +8,7 @@ namespace IDV300Term1.Objects
         normal,
         bad
     }
-    class HealthStates
+    public class HealthStates
     {
         public static string GetHealthString(HealthState healthState)
         {

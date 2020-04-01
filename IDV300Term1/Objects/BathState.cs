@@ -8,7 +8,7 @@ namespace IDV300Term1.Objects
         normal,
         bad
     }
-    class BathStates
+    public class BathStates
     {
         public static string GetBathString(BathState bathState)
         {

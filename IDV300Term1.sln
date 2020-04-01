@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IDV300Term1.iOS", "IDV300Te
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IDV300Term1", "IDV300Term1\IDV300Term1.csproj", "{BF431EA1-A26F-4710-94E0-65D6E9513B37}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IDV3OOTerm1UnitTests", "IDV3OOTerm1UnitTests\IDV3OOTerm1UnitTests.csproj", "{A791CE85-68CB-40B6-85CE-BFEFBFFEAFB3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,5 +55,17 @@ Global
 		{BF431EA1-A26F-4710-94E0-65D6E9513B37}.Debug|iPhone.Build.0 = Debug|Any CPU
 		{BF431EA1-A26F-4710-94E0-65D6E9513B37}.Release|iPhone.ActiveCfg = Release|Any CPU
 		{BF431EA1-A26F-4710-94E0-65D6E9513B37}.Release|iPhone.Build.0 = Release|Any CPU
+		{A791CE85-68CB-40B6-85CE-BFEFBFFEAFB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A791CE85-68CB-40B6-85CE-BFEFBFFEAFB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A791CE85-68CB-40B6-85CE-BFEFBFFEAFB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A791CE85-68CB-40B6-85CE-BFEFBFFEAFB3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A791CE85-68CB-40B6-85CE-BFEFBFFEAFB3}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{A791CE85-68CB-40B6-85CE-BFEFBFFEAFB3}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{A791CE85-68CB-40B6-85CE-BFEFBFFEAFB3}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{A791CE85-68CB-40B6-85CE-BFEFBFFEAFB3}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{A791CE85-68CB-40B6-85CE-BFEFBFFEAFB3}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{A791CE85-68CB-40B6-85CE-BFEFBFFEAFB3}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{A791CE85-68CB-40B6-85CE-BFEFBFFEAFB3}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{A791CE85-68CB-40B6-85CE-BFEFBFFEAFB3}.Release|iPhone.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

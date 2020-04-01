@@ -8,7 +8,7 @@ namespace IDV300Term1.Objects
         normal,
         bad
     }
-    class FoodStates
+    public class FoodStates
     {
         public static string GetFoodString(FoodState foodState)
         {
