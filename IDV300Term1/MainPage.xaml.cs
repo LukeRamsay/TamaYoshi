@@ -47,21 +47,7 @@ namespace IDV300Term1
 
             updateAgeUI();
 
-            updateUI();
-
-            updateFoodUI();
-
-            updateBedUI();
-
-            updateHealthUI();
-
-            StartTimer();
-
-            StartFoodTimer();
-
-            StartBedTimer();
-
-            StartHealthTimer();
+            
 
             var bSound = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
             bSound.Load("yoshi-background.mp3");
@@ -106,11 +92,36 @@ namespace IDV300Term1
         //Starting all of the timers once the egg is ready to hatch
         void hatchYoshiTapped(System.Object sender, System.EventArgs e)
         {
+            //trying to hide all the buttons while yoshi is an egg and only let him hatch once user clicks on a button which will show the hidden buttons
 
             //AgeState newAgeState = yoshi.CurrentAgeState;
 
             //newAgeState = AgeState.hatchling;
             //reset and start age timer
+
+
+            //Set buttons invisible until the button is lcicked then set them back to visible 
+            //foodButton.Visibility=ViewStates.Invisible;
+            //bathButton.Visibility=ViewStates.Invisible;
+            //bedButton.Visibility=ViewStates.Invisible;
+            //healthButton.Visibility=ViewStates.Invisible;
+
+            updateUI();
+
+            updateFoodUI();
+
+            updateBedUI();
+
+            updateHealthUI();
+
+            StartTimer();
+
+            StartFoodTimer();
+
+            StartBedTimer();
+
+            StartHealthTimer();
+
 
         }
 

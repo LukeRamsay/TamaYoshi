@@ -31,14 +31,12 @@
         <Label x:Name="lbltitle" VerticalOptions="Center" HorizontalOptions="Start" Margin="25, 450, 25, 0" HeightRequest="40" FontAttributes="Bold" FontSize="Title" Text="Info"></Label>
         <Label x:Name="lblold" VerticalOptions="Center" HorizontalOptions="Start" Margin="25, 600, 25, 0" HeightRequest="100" FontSize="Body">Your yoshi is currenly 0 days old</Label>
         <Label x:Name="lbltime" VerticalOptions="Center" HorizontalOptions="Start" Margin="25, 640, 25, 0" HeightRequest="100" FontSize="Body">Your yoshi was born on </Label>
-        <Label  x:Name="lblstate" VerticalOptions="Center" HorizontalOptions="Start" Margin="25, 680, 25, 0" HeightRequest="100" FontSize="Body">Your yoshi is an </Label>
         <Button HorizontalOptions="Start" VerticalOptions="CenterAndExpand" HeightRequest="40" WidthRequest="200" FontSize="30" Text="" BackgroundColor="Transparent" Margin="105, 10, 0, 10" x:Name="NameButton" Clicked="SwipeLeft"></Button>
         <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="End">
             <Button Clicked="feedYoshiTapped" x:Name="foodButton" Text="FEED"  HeightRequest="40" BackgroundColor="#F4f4f4" Margin="10, 360, 20, 50" CornerRadius="20" TextColor="#3F3F3F" WidthRequest="70"/>
             <Button Clicked="bathYoshiTapped" x:Name="bathButton" Text="BATH" WidthRequest="{Binding Path=Width, Source={x:Reference foodButton}}" Margin="10, 360, 20, 50" HeightRequest="40" BackgroundColor="#f4f4f4" TextColor="#3F3F3F" CornerRadius="20" />
             <Button Clicked="bedYoshiTapped"  x:Name="bedButton" Text="SLEEP" WidthRequest="{Binding Path=Width, Source={x:Reference foodButton}}" HeightRequest="40" BackgroundColor="#F4f4f4" TextColor="#3F3F3F" Margin="10, 360, 20, 50"  CornerRadius="20" />
-            <Button Clicked="healthYoshiTapped" x:Name="healthButton"  Text="MEDICINE" WidthRequest="20" HeightRequest="10" BackgroundColor="#F4f4f4" TextColor="#3F3F3F" Margin="10, 360, 20, 50"  CornerRadius="20" />
-            
+            <Button Clicked="healthYoshiTapped" x:Name="healthButton"  Text="MEDICINE" WidthRequest="{Binding Path=Width, Source={x:Reference foodButton}}" HeightRequest="10" BackgroundColor="#F4f4f4" TextColor="#3F3F3F" Margin="10, 360, 20, 50"  CornerRadius="20" />
 
         </StackLayout>
         
