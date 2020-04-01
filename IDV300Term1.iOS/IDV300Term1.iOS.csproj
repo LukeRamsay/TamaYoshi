@@ -128,8 +128,6 @@
     <ImageAsset Include="Assets.xcassets\shower_bad.imageset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\yoshi_egg.imageset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\yoshi_adult.imageset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\yoshi_egg.imageset\985-9859496_yoshi-egg-8-bit-yoshi-egg.png" />
-    <ImageAsset Include="Assets.xcassets\yoshi_adult.imageset\pixels-drawing-yoshi-17.png" />
     <ImageAsset Include="Assets.xcassets\name_reset.imageset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\name_save.imageset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\name_save.imageset\icons8-save-50.png" />
@@ -142,6 +140,10 @@
     <ImageAsset Include="Assets.xcassets\health_good.imageset\care %281%29.png" />
     <ImageAsset Include="Assets.xcassets\background2.imageset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\background2.imageset\8fb71335a1682f9.png" />
+    <ImageAsset Include="Assets.xcassets\yoshi_teen.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\yoshi_teen.imageset\0ed3cf128869f80.png" />
+    <ImageAsset Include="Assets.xcassets\yoshi_egg.imageset\383-3831014_yoshis-egg-yoshi-egg-pixel-art.png" />
+    <ImageAsset Include="Assets.xcassets\yoshi_adult.imageset\87251-mario-yoshi-green-go-touch-world-line.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -187,6 +189,7 @@
     <Folder Include="Assets.xcassets\health_normal.imageset\" />
     <Folder Include="Assets.xcassets\background1.imageset\" />
     <Folder Include="Assets.xcassets\background2.imageset\" />
+    <Folder Include="Assets.xcassets\yoshi_teen.imageset\" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\button_click.mp3" />
