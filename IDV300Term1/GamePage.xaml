@@ -17,11 +17,16 @@
                    IsTextPredictionEnabled="False"
                    x:Name="NameInput"/>
         </StackLayout>
-        <Button BackgroundColor="DodgerBlue"
+        <Button
+                BorderColor="#3F3F3F"
+                BorderWidth="1"
+                HeightRequest="40"
+                BackgroundColor="#F4f4f4"
+                CornerRadius="20"
+                TextColor="#3F3F3F"
                 FontSize="30"
                 WidthRequest="200"
-                Text="Change Name"
-                TextColor="White"
+                Text="SAVE"
                 Clicked="SaveYoshiName"/>
     </StackLayout>
 </rg:PopupPage>

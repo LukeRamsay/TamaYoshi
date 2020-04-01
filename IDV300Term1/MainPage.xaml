@@ -41,7 +41,7 @@
         <Label x:Name="lbltitle" VerticalOptions="Center" HorizontalOptions="Start" Margin="30, 470, 25, 0" HeightRequest="40" FontAttributes="Bold" FontSize="Title" Text="Info"></Label>
         <Label x:Name="lblold" VerticalOptions="Center" HorizontalOptions="Start" Margin="30, 620, 25, 0" HeightRequest="100" FontSize="Body">Your yoshi is currenly 0 days old</Label>
         <Label x:Name="lbltime" VerticalOptions="Center" HorizontalOptions="Start" Margin="30, 670, 25, 0" HeightRequest="100" FontSize="Body">Your yoshi was born on </Label>
-        <Button HorizontalOptions="Start" VerticalOptions="CenterAndExpand" HeightRequest="40" WidthRequest="200" FontSize="30" Text="" BackgroundColor="Transparent" Margin="105, 10, 0, 10" x:Name="NameButton" Clicked="SwipeLeft"></Button>
+        <Button HorizontalOptions="Start" VerticalOptions="CenterAndExpand" HeightRequest="40" WidthRequest="200" FontSize="30" TextColor="#00AF80" BackgroundColor="Transparent" Margin="105, 10, 0, 10" x:Name="NameButton" Clicked="SwipeLeft"></Button>
         
         
     </Grid>
