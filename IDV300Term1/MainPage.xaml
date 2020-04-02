@@ -11,7 +11,6 @@
             <Image VerticalOptions="StartAndExpand" HorizontalOptions="StartAndExpand" HeightRequest="500" Source="background2"  Scale="2.0" TranslationY="-20">  </Image>
             <Image VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="150" WidthRequest="150" Margin="0, 160, 0, 0" x:Name="yoshiImage" Source="yoshi_egg"></Image>
         </Grid>
-        
         <StackLayout VerticalOptions="EndAndExpand" HeightRequest="450" BackgroundColor="#F7F7F7">
         </StackLayout>
         <Frame HasShadow="True" CornerRadius="40" Padding="0" VerticalOptions="CenterAndExpand" HeightRequest="80" Margin="30, 0, 30, 0">
